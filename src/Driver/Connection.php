@@ -122,16 +122,16 @@ class Connection extends DatabaseConnection {
 
     // PDO Options are set at a connection level.
     // and apply to all statements.
-    $connection_options['pdo'] = [];
-
-    // Set proper error mode for all statements
-    $connection_options['pdo'][\PDO::ATTR_ERRMODE] = \PDO::ERRMODE_EXCEPTION;
-
-    // Set a Statement class, unless the driver opted out.
-    // $connection_options['pdo'][\PDO::ATTR_STATEMENT_CLASS] = array(Statement::class, array(Statement::class));
+    $pdo_options = isset($connection_options['pdo']) ? $connection_options['pdo'] : [];
+    $pdo_options += [
+      // Set proper error mode for all statements
+      \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
+      // Set a Statement class, unless the driver opted out.
+      \PDO::ATTR_STATEMENT_CLASS => array(Statement::class, array(Statement::class)),
+    ];
 
     // Actually instantiate the PDO.
-    $pdo = new \PDO($dsn, $connection_options['username'], $connection_options['password'], $connection_options['pdo']);
+    $pdo = new \PDO($dsn, $connection_options['username'], $connection_options['password'], $pdo_options);
 
     return $pdo;
   }
