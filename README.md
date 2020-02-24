@@ -1,4 +1,6 @@
-Enable the dblib module then set up a connection in settings.php
+This fork of dblib will not work for installing drupal to MSSQL (see https://github.com/andypost/dblib)
+
+If you just need the connection but don't need to install Drupal to MSSQL then you you can reference the driver directly in your settings.php
 
 e.g.
 
