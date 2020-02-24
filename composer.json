@@ -1,0 +1,8 @@
+{
+  "name": "drupal/dblib",
+  "type": "drupal-module",
+  "description": "DBLIB Sql Server driver",
+  "require": {
+      "drupal/core": "^8.7 || ^9"
+  }
+}
