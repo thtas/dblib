@@ -1,5 +1,5 @@
 {
-  "name": "drupal/dblib",
+  "name": "thtas/dblib",
   "type": "drupal-module",
   "description": "DBLIB Sql Server driver",
   "require": {
